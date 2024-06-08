@@ -2,10 +2,46 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="demo.css">
-    <title>Document</title>
+    <title>Сайт с выпадающим меню</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" type="text/css" href="demo.css" media="all" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+<!--JS код для слайдера-->
+<script>
+var slider = {
+    slides:['IMG/imgSl_1.png','IMG/imgSl_2.png','IMG/imgSl_3.png'],
+    frame:0,
+    set: function(image) {
+        document.getElementById("scr").style.backgroundImage = "url("+image+")";
+    },
+    init: function() {
+        this.set(this.slides[this.frame]);
+    },
+    left: function() { 
+        this.frame--;
+        if(this.frame < 0) this.frame = this.slides.length-1;
+        this.set(this.slides[this.frame]);
+    },
+    right: function() { 
+        this.frame++;
+        if(this.frame == this.slides.length) this.frame = 0;
+        this.set(this.slides[this.frame]);		
+    }
+};
+window.onload = function() {
+    slider.init();
+    setInterval(function() {
+        slider.right();
+    },5000);
+};
+</script>
+<!--окончание JS кода для слайдера-->
 </head>
 
 <body>
